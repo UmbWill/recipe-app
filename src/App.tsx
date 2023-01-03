@@ -1,25 +1,44 @@
 import React from 'react';
+import { ProSidebarProvider } from 'react-pro-sidebar';
 import logo from './logo.svg';
 import './App.css';
+import RecipeSidebar from './components/sidebar/Sidebar'
 
-function App() {
+
+
+function RecipeApp() {
+  const callback = (input : Object) => {
+    console.log("App " + JSON.stringify(input));
+  }
+
+  const arrCourses = ["antipasto", "first_course", "main_course", "side_dish", "dessert", "fruits"];
+  const arrMeats = ["red", "white"];
+  const arrFishes = ["tuna", "salmon", "shrimp"];
+  const arrVegetables = ["tomato", "carrot", "potato", "pepper", "spinach"];
+  const arrFruits = ["banana", "apple", "orange", "blueberry", "strawberry"];
+  const arrOthers = ["chocolate", "milk", "green_pea", "mushroom", "onion"];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="RecipeApp">
+        <h1>Coocking at home</h1>
+        <RecipeSidebar 
+          search = {callback}
+          courses = {arrCourses}
+          meats = {arrMeats}
+          fishes = {arrFishes}
+          vegetables = {arrVegetables}
+          fruits = {arrFruits}
+          others = {arrOthers}
+        />
     </div>
+  );
+}
+
+function App(){
+  return(
+    <ProSidebarProvider>
+      <RecipeApp/>
+    </ProSidebarProvider>
   );
 }
 
