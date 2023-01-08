@@ -1,5 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Tangerine);
+@import url(https://fonts.googleapis.com/css?family=Edu+SA+Beginner);
+
+
 .RecipeApp {
   text-align: center;
+  background-color: rgb(248, 244, 184);
 }
 
 .RecipeApp-logo {
@@ -35,4 +40,77 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+header { 
+  border: double 1em transparent;
+  border-radius: 30px;
+  background-image: url('./assets/dessert-03.jpg');
+  background-size: contain;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  /*  background-image: linear-gradient(to bottom, lightsteelblue, hsl(200, 100%, 30%)); 
+*/
+}
+
+svg {
+  display: block;
+  font: 10.5em 'Tangerine';
+  width: 960px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+text:nth-child(2) {
+  fill: none;
+  stroke: black;
+  stroke-width: 3px;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 6% 29%;
+  stroke-width: 5px;
+  stroke-dashoffset: 0%;
+  animation: stroke-offset 10.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+  stroke: #dbcf27;
+  animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+  stroke: #53dd1d;
+  animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+  stroke: #09a330;
+  animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+  stroke: #136946;
+  animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+  stroke: #378cec;
+  animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+  100% {stroke-dashoffset: -35%;}
+}
+
+.main-site{
+  padding: 10px;
+}
+
+h2 {
+  font-family : "Edu SA Beginner";
+  align-items: center;
+  justify-content: center;
 }
