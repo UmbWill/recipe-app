@@ -4,10 +4,7 @@ import Typography from '@mui/material/Typography';
 //import Modal from 'react-modal';
 import { 
     FormControl, 
-    //FormLabel, 
-    RadioGroup, 
     FormControlLabel, 
-    Radio,
     Checkbox, 
 } from '@mui/material';
 
@@ -16,10 +13,11 @@ import {
     Menu, 
     MenuItem,
     SubMenu,
-    useProSidebar, 
+   // useProSidebar, 
 } from "react-pro-sidebar";
 
-import "./sidebar.css"
+import "./sidebar.css";
+import {upperFirstChar} from "./../../Utils";
 
 export default function RecipeSidebar(props : any){
     
@@ -41,14 +39,14 @@ export default function RecipeSidebar(props : any){
     const [curFruits, setCurFruits] = useState(setInitialState(fruits));
     const [curOthers, setCurOthers] = useState(setInitialState(others));
     const [activeItem, setActiveItem] = useState("");
-    const { collapseSidebar } = useProSidebar();
+    //const { collapseSidebar } = useProSidebar();
     const [lastIngredients, setLastIngredients] = useState(Object);
 
     
 
-    const onClickMenuIcon = () => {
-        collapseSidebar();
-    };
+   // const onClickMenuIcon = () => {
+   //     collapseSidebar();
+   // };
 
     const searchRecipe = () => {
         //console.log(course);
@@ -65,13 +63,13 @@ export default function RecipeSidebar(props : any){
             console.log("Same ingredients.");
             return;
         }
-        console.log("calls search");
+        //console.log("calls search");
         setLastIngredients(ingredients);
         props.search(ingredients);
     }
 
     const handleChangesOnIngredients = (event : React.ChangeEvent<HTMLInputElement>) => {
-        console.log(event.target.checked);
+        //console.log(event.target.checked);
         switch(event.target.name){
             case "course":
                 setCurCourse({
@@ -124,17 +122,6 @@ export default function RecipeSidebar(props : any){
             setActiveItem(currentItem);
     }
     
-    const upperFirstChar = (s : string) => {
-        let curString = s.replace('_', ' ');
-        return curString.charAt(0).toUpperCase() + curString.slice(1);
-    }
-
-    /*const lowerAndReplace = (s : string) => {
-        let curString = s.replace(/\D/g, '');
-        curString.toLowerCase();
-        return curString;
-    }*/
-
     return (
         <>
             <div id="header">

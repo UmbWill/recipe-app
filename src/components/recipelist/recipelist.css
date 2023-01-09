@@ -1,4 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Edu+SA+Beginner);
+
 .recipedescription {
     height: 150px;
 }
 
+.loading {
+    margin: 10em;
+}
+
+h2 {
+    margin: 10em;
+}

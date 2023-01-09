@@ -5,6 +5,9 @@ import { Box } from "@mui/material";
 import './App.css';
 import RecipeSidebar from './components/sidebar/Sidebar'
 import RecipeList from './components/recipelist/RecipeList';
+import WaviyText from './components/waviytext/WaviyText';
+
+import { createData } from './Utils';
 
 
 function RecipeApp() {
@@ -20,8 +23,8 @@ function RecipeApp() {
 
 
   const useCallback = function ( ingredients : Object){
-    console.log("App " + JSON.stringify(ingredients));
-    setCurIngredients(ingredients);
+    //console.log("App " + JSON.stringify(ingredients));
+    setCurIngredients(createData(ingredients));
   }
 
   return (
@@ -59,7 +62,7 @@ function RecipeApp() {
               {
                 Object.keys(curIngredients).length !== 0 ? 
                   <RecipeList recipes = {curIngredients}></RecipeList>
-                :  <h2>Choose your ingredients.</h2> 
+                :  <WaviyText text="Choose your ingredients."/> 
               }
               </section>
             </Box>

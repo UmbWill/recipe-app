@@ -49,13 +49,15 @@ header {
   background-size: contain;
   background-origin: border-box;
   background-clip: content-box, border-box;
+  background-repeat: 'no-repeat';
+  height: 100%;
   /*  background-image: linear-gradient(to bottom, lightsteelblue, hsl(200, 100%, 30%)); 
 */
 }
 
 svg {
   display: block;
-  font: 10.5em 'Tangerine';
+  font: 13em 'Tangerine';
   width: 960px;
   height: 300px;
   margin: 0 auto;
@@ -64,7 +66,7 @@ svg {
 text:nth-child(2) {
   fill: none;
   stroke: black;
-  stroke-width: 3px;
+  stroke-width: 5px;
 }
 
 .text-copy {
@@ -77,27 +79,27 @@ text:nth-child(2) {
 }
 
 .text-copy:nth-child(1){
-  stroke: #dbcf27;
+  stroke: #e28a16;
   animation-delay: -1;
 }
 
 .text-copy:nth-child(2){
-  stroke: #53dd1d;
+  stroke: #da6f0b;
   animation-delay: -2s;
 }
 
 .text-copy:nth-child(3){
-  stroke: #09a330;
+  stroke: #f3440e;
   animation-delay: -3s;
 }
 
 .text-copy:nth-child(4){
-  stroke: #136946;
+  stroke: #350a66;
   animation-delay: -4s;
 }
 
 .text-copy:nth-child(5){
-  stroke: #378cec;
+  stroke: #7e0b32;
   animation-delay: -5s;
 }
 
