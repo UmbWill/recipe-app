@@ -40,7 +40,7 @@ export default function RecipeList(props : any){
             const recipesResponse = await fetch(DATABASE_RECIPE+'?'+dataQuery, {headers: {"Content-Type" : "application/json"}});
             const jsonRecipesResponse = await recipesResponse.json();
             const arrayRecipe = Array.from(jsonRecipesResponse["message"]);
-            //console.log("jsonRecipesResponse: "+arrayRecipe);
+           //console.log("jsonRecipesResponse: "+arrayRecipe);
             setRecipes(arrayRecipe);
         };
         if(dataQuery != "")
