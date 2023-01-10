@@ -7,7 +7,6 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import ScheduleIcon from '@mui/icons-material/Schedule';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -25,7 +24,6 @@ const DATABASE_RECIPE_IMAGE = 'http://192.168.99.100:5000/recipe_image';
 
 export default function RecipeList(props : any){
     const [recipes, setRecipes] = useState(Array);
-    const [images, setImages] = useState(Object);
     const [lastIngredients, setLastIngredients] = useState("");
     const [hasLoaded, setHasLoaded] = useState(false);
     
@@ -43,10 +41,10 @@ export default function RecipeList(props : any){
            //console.log("jsonRecipesResponse: "+arrayRecipe);
             setRecipes(arrayRecipe);
         };
-        if(dataQuery != "")
+        if(dataQuery !== "")
             fetchData(dataQuery);
         setHasLoaded(true);
-    }, [props, setRecipes, setImages, setHasLoaded]);
+    }, [props, lastIngredients, setLastIngredients, setRecipes, setHasLoaded]);
     
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -62,7 +60,7 @@ export default function RecipeList(props : any){
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       
             {
-            Object.keys(recipes).length != 0 ?
+            Object.keys(recipes).length !== 0 ?
                 recipes.map((item : any)=>(
                     <Grid item xs={12} sm={6} md={4} key={item.name}>
                         <Item key={item.name}>
@@ -140,7 +138,7 @@ interface ExpandMoreProps extends IconButtonProps {
         <CardMedia
           component="img"
           height="194"
-          image = {`http://192.168.99.100:5000/recipe_image?recipe_id=${recipe_id}`}
+          image = {DATABASE_RECIPE_IMAGE+`?recipe_id=${recipe_id}`}
           alt={name}
         />
         <CardContent>
